@@ -1,0 +1,116 @@
+[user]
+	name = Erwan Richard
+	email = erwan.richard@revelhome.fr
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL28xvhTrtrqdT89EwojZ5ooMcQPWyLBtlmWXIPkZDV0
+[alias]
+    st = status -sb
+    c  = commit
+    cm = commit -m
+    cp = cherry-pick
+    br = branch
+    co = checkout
+    d  = diff
+    dp = diff -p
+    ds = diff --staged
+    rh = reset HEAD
+    p = "!git up && git push"	
+    changelog = log --no-merges --pretty=format:'* %s (%an)' 
+    ls = log --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --no-merges
+    ll = log --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --numstat --no-merges
+    dl = "!git ll -1"
+    dlc = diff --cached HEAD^
+    dr  = "!f() { git diff "$1"^.."$1"; }; f"
+    lc  = "!f() { git ll "$1"^.."$1"; }; f"
+    diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+    amend = commit --amend
+    ap = add -p
+    re = rebase
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+    ours = "!f() { git co --ours $@ && git add $@; }; f"
+    theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+    mt = mergetool
+    rec = rebase --continue
+    rea = rebase --abort
+    res = rebase --skip
+    tl = tag --sort version:refname
+    tg = "!git log `git describe --tags --abbrev=0`..HEAD --oneline"
+    up = !git fetch && git rebase --autostash FETCH_HEAD
+	branches = !legit branches
+	graft = !legit graft
+	harvest = !legit harvest
+	publish = !legit publish
+	unpublish = !legit unpublish
+	sprout = !legit sprout
+	sync = !legit sync
+	switch = !legit switch
+	resync = !legit resync
+    pd = "!git branch --merged develop | grep -v 'develop$' | xargs git branch -d"
+[core]
+    sharedRepository = umask
+    autocrlf = input
+    filemode = true
+    editor = vim
+[push]
+    default = current
+[branch]
+    autosetuprebase = always
+[merge]
+    tool = meld
+[diff]
+    tool = meld
+[mergetool]
+    keepBackup = false
+    keepTemporaries = false
+    prompt = false
+    path = meld
+[git-up "rebase"]
+    log-hook = "echo \"changes on $1:\"; git ls --no-merges $1..$2"
+[pager]
+#    diff = diff-so-fancy | less --tabs=1,5 -RFX
+[color]
+	ui = true
+[color "diff"]
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+#    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[tag]
+	sort = version:refname
+[protocol]
+	version = 2
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[gpg "ssh"]
+	program = /usr/share/1password/op-ssh-sign
