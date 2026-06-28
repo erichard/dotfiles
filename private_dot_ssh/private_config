@@ -1,0 +1,30 @@
+UserKnownHostsFile=/home/erwan/.ssh/known_hosts
+StrictHostKeyChecking=accept-new
+
+Include /home/erwan/repositories/revelhome/docker/frankenphp/ssh/config
+Include /home/erwan/repositories/revelhome/.ddev/homeadditions/.ssh/config
+
+Host *
+	IdentityAgent ~/.1password/agent.sock
+
+Host proxy
+	Hostname 146.59.228.50
+	User debian
+
+Host gitlab
+	Hostname 178.105.183.142
+	User rvhadmin
+	Port 22
+	ProxyJump nala
+
+Host runner
+	Hostname 49.13.162.2
+	User rvhadmin
+	Port 22
+	ProxyJump nala
+
+Host gitlab.revelhome.dev
+      HostName 178.105.183.142
+      User git
+      ProxyJump nala
+
