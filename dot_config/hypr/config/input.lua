@@ -3,7 +3,10 @@
 hl.config({
     input = {
         accel_profile = "flat",
-        kb_layout = "us_qwerty-fr",
+	kb_layout = "us_qwerty-fr",
+	touchpad = {
+            clickfinger_behavior = true,
+        },
     },
 })
 
