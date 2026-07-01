@@ -1,0 +1,567 @@
+{
+  "cheatsheetData": [
+    {
+      "title": "Without Description",
+      "binds": [
+        {
+          "keys": "Super + ESCAPE",
+          "desc": "",
+          "bindId": "|64|Escape|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Q",
+          "desc": "",
+          "bindId": "|64|Q|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + SPACE",
+          "desc": "",
+          "bindId": "|72|Space|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + D",
+          "desc": "",
+          "bindId": "|64|D|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + F",
+          "desc": "",
+          "bindId": "|64|F|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + J",
+          "desc": "",
+          "bindId": "|64|J|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + L",
+          "desc": "",
+          "bindId": "|64|L|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + C",
+          "desc": "",
+          "bindId": "|72|C|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + LEFT",
+          "desc": "",
+          "bindId": "|64|Left|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + RIGHT",
+          "desc": "",
+          "bindId": "|64|Right|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + UP",
+          "desc": "",
+          "bindId": "|64|Up|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + DOWN",
+          "desc": "",
+          "bindId": "|64|Down|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Alt + TAB",
+          "desc": "",
+          "bindId": "|8|Tab|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + RIGHT",
+          "desc": "",
+          "bindId": "|65|Right|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + LEFT",
+          "desc": "",
+          "bindId": "|65|Left|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + UP",
+          "desc": "",
+          "bindId": "|65|Up|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + DOWN",
+          "desc": "",
+          "bindId": "|65|Down|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + Ctrl + RIGHT",
+          "desc": "",
+          "bindId": "|69|Right|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + Ctrl + LEFT",
+          "desc": "",
+          "bindId": "|69|Left|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Left Click",
+          "desc": "",
+          "bindId": "|64|mouse:272|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Right Click",
+          "desc": "",
+          "bindId": "|64|mouse:273|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + RETURN",
+          "desc": "",
+          "bindId": "|64|Return|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + E",
+          "desc": "",
+          "bindId": "|64|E|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + T",
+          "desc": "",
+          "bindId": "|64|T|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + C",
+          "desc": "",
+          "bindId": "|64|C|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + W",
+          "desc": "",
+          "bindId": "|64|W|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Shift + Ctrl + ESCAPE",
+          "desc": "",
+          "bindId": "|5|Escape|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Z",
+          "desc": "",
+          "bindId": "|64|Z|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + X",
+          "desc": "",
+          "bindId": "|64|X|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + SPACE",
+          "desc": "",
+          "bindId": "|64|Space|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + PERIOD",
+          "desc": "",
+          "bindId": "|64|period|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Vol Up",
+          "desc": "",
+          "bindId": "|0|XF86AudioRaiseVolume|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Vol Down",
+          "desc": "",
+          "bindId": "|0|XF86AudioLowerVolume|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Mute",
+          "desc": "",
+          "bindId": "|0|XF86AudioMute|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Mic Mute",
+          "desc": "",
+          "bindId": "|0|XF86AudioMicMute|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Play",
+          "desc": "",
+          "bindId": "|0|XF86AudioPlay|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Pause",
+          "desc": "",
+          "bindId": "|0|XF86AudioPause|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Next",
+          "desc": "",
+          "bindId": "|0|XF86AudioNext|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Prev",
+          "desc": "",
+          "bindId": "|0|XF86AudioPrev|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Bright Up",
+          "desc": "",
+          "bindId": "|0|XF86MonBrightnessUp|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Bright Down",
+          "desc": "",
+          "bindId": "|0|XF86MonBrightnessDown|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + P",
+          "desc": "",
+          "bindId": "|64|P|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "PrtSc",
+          "desc": "",
+          "bindId": "|0|Print|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + PrtSc",
+          "desc": "",
+          "bindId": "|64|Print|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + R",
+          "desc": "",
+          "bindId": "|64|R|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + W",
+          "desc": "",
+          "bindId": "|65|W|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + V",
+          "desc": "",
+          "bindId": "|64|V|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 1",
+          "desc": "",
+          "bindId": "|64|1|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 1",
+          "desc": "",
+          "bindId": "|65|1|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 1",
+          "desc": "",
+          "bindId": "|72|1|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 2",
+          "desc": "",
+          "bindId": "|64|2|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 2",
+          "desc": "",
+          "bindId": "|65|2|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 2",
+          "desc": "",
+          "bindId": "|72|2|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 3",
+          "desc": "",
+          "bindId": "|64|3|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 3",
+          "desc": "",
+          "bindId": "|65|3|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 3",
+          "desc": "",
+          "bindId": "|72|3|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 4",
+          "desc": "",
+          "bindId": "|64|4|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 4",
+          "desc": "",
+          "bindId": "|65|4|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 4",
+          "desc": "",
+          "bindId": "|72|4|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 5",
+          "desc": "",
+          "bindId": "|64|5|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 5",
+          "desc": "",
+          "bindId": "|65|5|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 5",
+          "desc": "",
+          "bindId": "|72|5|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 6",
+          "desc": "",
+          "bindId": "|64|6|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 6",
+          "desc": "",
+          "bindId": "|65|6|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 6",
+          "desc": "",
+          "bindId": "|72|6|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 7",
+          "desc": "",
+          "bindId": "|64|7|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 7",
+          "desc": "",
+          "bindId": "|65|7|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 7",
+          "desc": "",
+          "bindId": "|72|7|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 8",
+          "desc": "",
+          "bindId": "|64|8|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 8",
+          "desc": "",
+          "bindId": "|65|8|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 8",
+          "desc": "",
+          "bindId": "|72|8|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 9",
+          "desc": "",
+          "bindId": "|64|9|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 9",
+          "desc": "",
+          "bindId": "|65|9|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 9",
+          "desc": "",
+          "bindId": "|72|9|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + 0",
+          "desc": "",
+          "bindId": "|64|0|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + 0",
+          "desc": "",
+          "bindId": "|65|0|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Alt + 0",
+          "desc": "",
+          "bindId": "|72|0|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Ctrl + RIGHT",
+          "desc": "",
+          "bindId": "|68|Right|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Ctrl + LEFT",
+          "desc": "",
+          "bindId": "|68|Left|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Ctrl + DOWN",
+          "desc": "",
+          "bindId": "|68|Down|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Ctrl + Alt + RIGHT",
+          "desc": "",
+          "bindId": "|76|Right|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Ctrl + Alt + LEFT",
+          "desc": "",
+          "bindId": "|76|Left|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Scroll Down",
+          "desc": "",
+          "bindId": "|64|mouse_down|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Scroll Up",
+          "desc": "",
+          "bindId": "|64|mouse_up|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + Shift + S",
+          "desc": "",
+          "bindId": "|65|S|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + S",
+          "desc": "",
+          "bindId": "|64|S|000|__lua",
+          "undescribed": true
+        },
+        {
+          "keys": "Super + A",
+          "desc": "",
+          "bindId": "|64|A|000|__lua",
+          "undescribed": true
+        }
+      ]
+    }
+  ],
+  "detectedCompositor": "hyprland",
+  "windowWidth": 1400,
+  "windowHeight": 850,
+  "autoHeight": true,
+  "columnCount": 3,
+  "modKeyVariable": "$mod",
+  "hyprlandConfigPath": "~/.config/hypr/hyprland.conf",
+  "hyprlandLuaConfigPath": "~/.config/hypr/hyprland.lua",
+  "hyprlandParserMode": "auto",
+  "niriConfigPath": "~/.config/niri/config.kdl",
+  "mangoConfigPath": "~/.config/mango/config.conf",
+  "mergeSequentialBinds": true,
+  "showUndescribedBinds": true,
+  "splitLargeWorkspaceCategory": true,
+  "workspaceSplitThreshold": 12,
+  "keyColorAlt": "#FF6B6B",
+  "keyColorXF86": "#4ECDC4",
+  "keyColorPrint": "#95E1D3",
+  "keyColorNumeric": "#A8DADC",
+  "keyColorMouse": "#F38181",
+  "keyColorSuper": "",
+  "keyColorCtrl": "",
+  "keyColorShift": "",
+  "keyColorDefault": "#6C757D",
+  "keyLabelColor": "#FFFFFF",
+  "keyTextSuper": "",
+  "keyTextCtrl": "",
+  "keyTextShift": "",
+  "keyTextAlt": "",
+  "keyTextXF86": "",
+  "keyTextPrint": "",
+  "keyTextNumeric": "",
+  "keyTextMouse": "",
+  "keyTextDefault": "",
+  "descriptionTextColor": "",
+  "bindOverrides": {}
+}
