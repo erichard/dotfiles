@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Cursor - Revel'Home
+Exec=cursor --classic ~/repositories/revelhome
+Icon=cursor
+Type=Application
+Categories=Development;
