@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Claude Code - Revel'Home
+Exec=kitty --title "term-claude" -d ~/repositories/revelhome -e claude
+Icon=utilities-terminal
+Type=Application
+Categories=Development;
