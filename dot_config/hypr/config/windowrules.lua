@@ -119,3 +119,12 @@ hl.window_rule({
 
     no_focus = true,
 })
+
+
+hl.window_rule({ match = { class = "firefox" }, workspace = 1 })
+
+hl.window_rule({ match = { class = "cursor" }, workspace = 2 })
+hl.window_rule({ match = { class = "kitty", title = "term-claude" }, workspace = 2 })
+
+hl.window_rule({ match = { class = "com.slack.Slack" }, workspace = 3 })
+
