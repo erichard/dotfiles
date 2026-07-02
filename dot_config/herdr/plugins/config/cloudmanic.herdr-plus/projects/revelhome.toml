@@ -1,0 +1,24 @@
+# Template de workspace herdr-plus pour Revel'Home.
+# Ouvre-le via l'action « Herdr Plus: Projects » (fuzzy-pick).
+
+name = "Revel'Home"
+description = "Plateforme SaaS BTP — Symfony 7.3 + Docker (just)"
+working_dir = "~/repositories/revelhome"
+
+# L'agent Claude Code — la star du workspace.
+[[tabs]]
+name = "claude"
+command = "claude"
+
+# Boot de la stack Docker (injecte les secrets 1Password via op).
+[[tabs]]
+name = "stack"
+command = "just up"
+
+# Build des assets en watch — à lancer une fois la stack up.
+[[tabs]]
+name = "watch"
+
+# Terminal libre : just console, just logs, git, etc.
+[[tabs]]
+name = "shell"
