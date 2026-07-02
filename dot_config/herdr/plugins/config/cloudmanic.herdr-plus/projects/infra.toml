@@ -1,0 +1,15 @@
+# Template de workspace herdr-plus pour l'infra Revel'Home.
+# Ouvre-le via l'action « Herdr Plus: Projects » (fuzzy-pick).
+
+name = "Infra"
+description = "Infra & déploiement (Docker Swarm — preprod / production)"
+working_dir = "~/repositories/infra"
+
+# L'agent Claude Code.
+[[tabs]]
+name = "claude"
+command = "claude"
+
+# Terminal libre : docker / swarm, git, édition des stacks.
+[[tabs]]
+name = "shell"
