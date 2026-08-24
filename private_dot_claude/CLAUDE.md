@@ -58,6 +58,22 @@ l'aveugle un chantier transverse. Doute sur la marche à suivre : `/openspec-exp
 
 Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin.
 
+**Trois phases.** Le gradient dit où l'on entre ; la séquence dit ce qu'on traverse.
+
+| Phase       | Question    | Artefacts                                               | Où ça vit          |
+|-------------|-------------|---------------------------------------------------------|--------------------|
+| Exploration | *pourquoi*  | PRD — établit le périmètre du projet                    | document Linear    |
+| Conception  | *comment*   | prototype → UXspec → OpenSpec (proposal, design, specs) | Linear, puis dépôt |
+| Réalisation | *exécution* | `tasks.md`, découpage en milestones, dev, PR relues     | dépôt et Linear    |
+
+En Conception, **l'ordre compte** : le prototype puis l'UXspec (anciennement IDR) précèdent
+l'OpenSpec, qui s'écrit à partir d'eux. Le `proposal.md` s'ouvre donc sur ses **sources de cadrage**,
+liens vers le PRD et l'UXspec — symétrique du `Réf. change OpenSpec` que porte le milestone. Le
+découpage en milestones, lui, appartient à la **Réalisation**.
+
+*Exception* : l'engineering book Notion décrit le technique et le design comme deux axes parallèles ;
+en pratique ils sont séquentiels, et il nomme cette phase « Spécification » plutôt que Conception.
+
 ### 2. Subagent Strategy
 
 - Use subagents liberally to keep main context window clean
