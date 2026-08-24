@@ -66,13 +66,13 @@ Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin
 | Conception  | *comment*   | prototype → UXspec → OpenSpec (proposal, design, specs) | Linear, puis dépôt |
 | Réalisation | *exécution* | `tasks.md`, découpage en milestones, dev, PR relues     | dépôt et Linear    |
 
-En Conception, **l'ordre compte** : le prototype puis l'UXspec (anciennement IDR) précèdent
-l'OpenSpec, qui s'écrit à partir d'eux. Le `proposal.md` s'ouvre donc sur ses **sources de cadrage**,
-liens vers le PRD et l'UXspec — symétrique du `Réf. change OpenSpec` que porte le milestone. Le
-découpage en milestones, lui, appartient à la **Réalisation**.
+En Conception, l'UXspec (anciennement IDR) précède **généralement** l'OpenSpec, qui s'écrit à partir
+d'elle : le `proposal.md` s'ouvre sur ses **sources de cadrage**, liens vers le PRD et l'UXspec —
+symétrique du `Réf. change OpenSpec` que porte le milestone. C'est une contrainte de **charge**, pas
+de méthode : les deux axes avancent en parallèle quand la capacité le permet. Le découpage en
+milestones, lui, appartient à la **Réalisation**.
 
-*Exception* : l'engineering book Notion décrit le technique et le design comme deux axes parallèles ;
-en pratique ils sont séquentiels, et il nomme cette phase « Spécification » plutôt que Conception.
+*Exception* : l'engineering book Notion nomme cette phase « Spécification » plutôt que Conception.
 
 ### 2. Subagent Strategy
 
