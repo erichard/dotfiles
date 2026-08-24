@@ -1,0 +1,22 @@
+{{- if ne .chezmoi.hostname "orion" }}
+.config/noctalia 
+.config/kitty 
+.config/hypr
+{{- end }}
+
+# Runtime Claude Code — écrit à chaque session, jamais à synchroniser.
+# La mémoire auto (.claude/projects/) est machine-locale par conception : cache, pas registre.
+.claude/backups/
+.claude/cache/
+.claude/file-history/
+.claude/ide/
+.claude/plugins/
+.claude/projects/
+.claude/session-env/
+.claude/sessions/
+.claude/shell-snapshots/
+.claude/history.jsonl
+.claude/mcp-needs-auth-cache.json
+.claude/policy-limits.json
+.claude/remote-settings.json
+.claude/stats-cache.json
