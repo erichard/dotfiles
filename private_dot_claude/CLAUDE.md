@@ -103,6 +103,10 @@ Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin
 6. **Capture Lessons** : après une correction, promouvoir la leçon selon l'échelle de
    `.claude/rules/harness-engineering.md` — vers le dépôt, jamais vers la mémoire auto
 
+Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone = 1 déploiement**
+(`D<n>`, découpé par la séquence expand/contract), **1 tâche = 1 section du `tasks.md`**. `D<n>` est
+la clé de jointure entre les deux supports. Détail et exemples : skill `linear-conventions`.
+
 ## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
