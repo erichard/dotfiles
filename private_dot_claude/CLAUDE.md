@@ -40,12 +40,23 @@ plus l'aspirer. Un fichier neuf sous `~/.claude/` n'existe sur l'autre poste qu'
 
 ## Workflow Orchestration
 
-### 1. Plan Mode Default
+### 1. OpenSpec, et où entrer dans le pipeline
 
-- Enter plan mode for ANY non-trivial task (3+ steps or architectural decisions)
-- If something goes sideways, STOP and re-plan immediately - don't keep pushing
-- Use plan mode for verification steps, not just building
-- Write detailed specs upfront to reduce ambiguity
+Je n'utilise pas plan mode : la spécification vit dans `openspec/changes/`, versionnée dans le dépôt,
+donc elle traverse les postes. Entrer dans le pipeline **à la hauteur du chantier** (gradient
+anti-bureaucratie, Tech Hub → Méthodes de travail) :
+
+| Ampleur                 | Point d'entrée                                         |
+|-------------------------|--------------------------------------------------------|
+| 3+ semaines, transverse | change OpenSpec complète : proposal + design + specs   |
+| 1-3 semaines            | PRD léger + spec technique en commentaire long         |
+| < 1 semaine             | ticket Linear bien rédigé                              |
+| Correction de bug       | directement à l'implémentation                         |
+
+Plus c'est gros, plus on va en amont. Ne pas ouvrir une change pour un correctif ; ne pas coder à
+l'aveugle un chantier transverse. Doute sur la marche à suivre : `/openspec-explore`.
+
+Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin.
 
 ### 2. Subagent Strategy
 
@@ -84,12 +95,13 @@ plus l'aspirer. Un fichier neuf sous `~/.claude/` n'existe sur l'autre poste qu'
 
 ## Task Management
 
-1. **Plan First**: Write plan to `tasks/todo.md` with checkable items
-2. **Verify Plan**: Check in before starting implementation
-3. **Track Progress**: Mark items complete as you go
-4. **Explain Changes**: High-level summary at each step
-5. **Document Results**: Add review section to `tasks/todo.md`
-6. **Capture Lessons**: Update `.claude/lessons.md` after corrections
+1. **Plan First** : les actions vont dans le `tasks.md` de la change OpenSpec, en cases à cocher
+2. **Verify Plan** : valider avec moi avant d'implémenter
+3. **Track Progress** : cocher au fur et à mesure — c'est l'état que l'autre poste relira
+4. **Explain Changes** : résumé de haut niveau à chaque étape
+5. **Document Results** : le récit va dans le **corps du commit**, que `/pr` relit pour bâtir la PR
+6. **Capture Lessons** : après une correction, promouvoir la leçon selon l'échelle de
+   `.claude/rules/harness-engineering.md` — vers le dépôt, jamais vers la mémoire auto
 
 ## Core Principles
 
