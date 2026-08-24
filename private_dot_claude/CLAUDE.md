@@ -67,10 +67,12 @@ Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin
 
 ### 3. Self-Improvement Loop
 
-- After ANY correction from the user: update `.claude/lessons.md` with the pattern
-- Write rules for yourself that prevent the same mistake
-- Ruthlessly iterate on these lessons until mistake rate drops
-- Review lessons at session start for relevant project
+Après une correction : ne pas se contenter de corriger la ligne, récupérer la **classe** de défaut et
+la promouvoir au plus petit propriétaire durable — échelle dans
+`.claude/rules/harness-engineering.md`. Le bon propriétaire est rarement de la prose : si la leçon est
+mécaniquement vérifiable, elle appartient à PHPStan, CS-Fixer, un test ou un hook.
+
+Ne jamais promouvoir sur une seule occurrence : un signal est une piste, pas un diagnostic.
 
 ### 4. Verification Before Done
 
