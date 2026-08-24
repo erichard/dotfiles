@@ -7,6 +7,37 @@ Lorsque tu t'adresses à moi, tu peux m'appeler Erwan et tu peux me tutoyer.
 
 - **Shell** : fish (pas bash/zsh) — adapter la syntaxe des commandes en conséquence (ex: `set -x VAR value` au lieu de `export VAR=value`)
 
+## Deux machines : vega et orion
+
+Je travaille sur **deux postes**, et c'est la contrainte qui gouverne le choix de chaque support :
+
+- **`vega`** — Framework Laptop 13, au bureau ;
+- **`orion`** — desktop fixe, en télétravail.
+
+Conséquence : **rien de local ne survit au changement de poste.** Ce qui n'est pas poussé, ou dans
+Linear, n'existe pas — le reste est un cache.
+
+| Support                       | Survit au `/clear` | Traverse les worktrees | Traverse les postes             |
+|-------------------------------|--------------------|------------------------|---------------------------------|
+| `openspec/changes/*/tasks.md` | oui                | oui                    | **oui**, commité                |
+| Corps du commit               | oui                | oui                    | **oui**, une fois poussé        |
+| Commentaire Linear            | oui                | oui                    | **oui**                         |
+| `~/.claude/` sous chezmoi     | oui                | oui                    | **oui**, après `chezmoi apply`  |
+| `.claude/plans/`              | oui                | non                    | **non** — gitignoré             |
+| Mémoire auto                  | oui                | oui                    | **non** — `~/.claude/projects/` |
+| Plan mode, en session         | non                | non                    | **non**                         |
+
+Donc : la **mémoire auto est un cache, jamais un registre** — n'y mettre que ce qui se re-dérive du
+dépôt. Un état d'avancement va dans le `tasks.md` de la change OpenSpec ; une décision ou un prochain
+pas va dans le corps du commit **poussé**, ou dans Linear. Avant de fermer une session, ce qui compte
+n'est pas commité : il est **poussé**.
+
+`~/.claude/` est géré par **chezmoi** (source `~/.local/share/chezmoi`, cible `private_dot_claude/`) :
+`CLAUDE.md`, `RTK.md` et `settings.json`. Le critère d'entrée est le `mtime` — ce qui bouge chaque
+jour n'y va pas, et `.chezmoiignore` nomme le runtime pour qu'un `chezmoi add ~/.claude` ne puisse
+plus l'aspirer. Un fichier neuf sous `~/.claude/` n'existe sur l'autre poste qu'après un
+`chezmoi add` **et** un push.
+
 ## Workflow Orchestration
 
 ### 1. Plan Mode Default
