@@ -72,8 +72,6 @@ symétrique du `Réf. change OpenSpec` que porte le milestone. C'est une contrai
 de méthode : les deux axes avancent en parallèle quand la capacité le permet. Le découpage en
 milestones, lui, appartient à la **Réalisation**.
 
-*Exception* : l'engineering book Notion nomme cette phase « Spécification » plutôt que Conception.
-
 ### 2. Subagent Strategy
 
 - Use subagents liberally to keep main context window clean
