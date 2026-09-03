@@ -88,6 +88,11 @@ mécaniquement vérifiable, elle appartient à PHPStan, CS-Fixer, un test ou un 
 
 Ne jamais promouvoir sur une seule occurrence : un signal est une piste, pas un diagnostic.
 
+La leçon qu'aucun dépôt ne possède — elle traverse les projets, ou elle porte sur ma façon de
+travailler plutôt que sur du code — va dans `~/.claude/lessons.md`, importé en fin de fichier et
+versionné sous chezmoi : c'est ce qui la fait traverser les postes. Celle qu'un dépôt possède reste
+dans le dépôt.
+
 ### 4. Verification Before Done
 
 - Never mark a task complete without proving it works
@@ -117,7 +122,8 @@ Ne jamais promouvoir sur une seule occurrence : un signal est une piste, pas un 
 4. **Explain Changes** : résumé de haut niveau à chaque étape
 5. **Document Results** : le récit va dans le **corps du commit**, que `/pr` relit pour bâtir la PR
 6. **Capture Lessons** : après une correction, promouvoir la leçon selon l'échelle de
-   `.claude/rules/harness-engineering.md` — vers le dépôt, jamais vers la mémoire auto
+   `.claude/rules/harness-engineering.md` — vers le dépôt, ou vers `~/.claude/lessons.md` si aucun
+   dépôt ne la possède ; jamais vers la mémoire auto
 
 Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone = 1 déploiement**
 (`D<n>`, découpé par la séquence expand/contract), **1 tâche = 1 section du `tasks.md`**. `D<n>` est
@@ -130,3 +136,4 @@ la clé de jointure entre les deux supports. Détail et exemples : skill `linear
 - **Minimat Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
 @RTK.md
+@lessons.md
