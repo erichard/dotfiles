@@ -1,4 +1,9 @@
 sourceDir = "~/repositories/dotfiles"
+encryption = "age"
+
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age1mj5v8ctdh29ta3rjp9d7rg9z0nkgnkjeva2tz5gvfg4v9s9pzf8sw9fhkk"
 
 [git]
     autoCommit = true

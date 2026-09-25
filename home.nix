@@ -14,7 +14,7 @@ in {
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
 
-  home.packages = with pkgs; [ rtk just gh jq fd ripgrep bat eza fzf btop ];
+  home.packages = with pkgs; [ age rtk just gh jq fd ripgrep bat eza fzf btop ];
 
   # Liens hors du store : Claude Code, noctalia et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
   # hosts/<hôte>/ surcharge home/ : seuls y vivent les fichiers qu'une machine ne peut pas partager.
