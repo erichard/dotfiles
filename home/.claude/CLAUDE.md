@@ -79,7 +79,14 @@ milestones, lui, appartient à la **Réalisation**.
 - For complex problems, throw more compute at it via subagents
 - One tack per subagent for focused execution
 
-### 3. Self-Improvement Loop
+### 3. Ouvrir un worktree avant la première modification
+
+Toute session qui va modifier des fichiers **commence par `EnterWorktree`**, avant le premier
+`Edit`/`Write`. Le checkout principal reste réservé à la lecture seule (exploration, revue,
+recherche `git log`) : dès qu'une édition s'annonce, ouvrir le worktree d'abord plutôt que de
+modifier sur place puis de vouloir isoler après coup.
+
+### 4. Self-Improvement Loop
 
 Après une correction : ne pas se contenter de corriger la ligne, récupérer la **classe** de défaut et
 la promouvoir au plus petit propriétaire durable — échelle dans
@@ -93,21 +100,21 @@ travailler plutôt que sur du code — va dans `~/.claude/lessons.md`, importé 
 versionné sous chezmoi : c'est ce qui la fait traverser les postes. Celle qu'un dépôt possède reste
 dans le dépôt.
 
-### 4. Verification Before Done
+### 5. Verification Before Done
 
 - Never mark a task complete without proving it works
 - Diff behavior between main and your changes when relevant
 - Ask yourself: "Would a staff engineer approve this?"
 - Run tests, check logs, demonstrate correctness
 
-### 5. Demand Elegance (Balanced)
+### 6. Demand Elegance (Balanced)
 
 - For non-trivial changes: pause and ask "is there a more elegant way?"
 - If a fix feels hacky: "Knowing everything I know now, implement the elegant solution"
 - Skip this for simple, obvious fixes - don't over-engineer
 - Challenge your own work before presenting it
 
-### 6. Autonomous Bug Fixing
+### 7. Autonomous Bug Fixing
 
 - When given a bug report: just fix it. Don't ask for hand-holding
 - Point at logs, errors, failing tests - then resolve them
@@ -125,9 +132,10 @@ dans le dépôt.
    `.claude/rules/harness-engineering.md` — vers le dépôt, ou vers `~/.claude/lessons.md` si aucun
    dépôt ne la possède ; jamais vers la mémoire auto
 
-Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone = 1 déploiement**
-(`D<n>`, découpé par la séquence expand/contract), **1 tâche = 1 section du `tasks.md`**. `D<n>` est
-la clé de jointure entre les deux supports. Détail et exemples : skill `linear-conventions`.
+Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone = une étape du cycle
+de vie** (préfixes `M`, `D`, `F`, `P`), **1 tâche = 1 section du `tasks.md`**. `D<n>` est la clé de
+jointure entre les deux supports. Les préfixes, leur ordre et les règles qui en découlent
+appartiennent au dépôt : skill `linear-conventions`.
 
 ## Rédaction des tickets et commentaires Linear
 
@@ -154,4 +162,5 @@ réécrire.
 - **Minimat Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
 @RTK.md
+@HERDR.md
 @lessons.md
