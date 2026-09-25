@@ -1,0 +1,90 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(~/.claude/bin/betterstack-query:*)",
+      "Bash(betterstack-query:*)"
+    ]
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/erwan/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "language": "French",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "low"
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "auto",
+  "editorMode": "normal",
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(just phpstan:*)",
+      "Bash(just phpunit:*)",
+      "Bash(just cs-fix:*)",
+      "Bash(just console dbal:run-sql:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(just dump-prod:*)",
+      "Bash(just prod-console:*)"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: Revel'Home (revelhome-ot) — SaaS B2B multi-tenant BTP, repo revelhome/revelhome (github.com)",
+      "**Cloud provider(s)**: S3 (object storage, per config/secrets/prod and docker/php.prod.ini references); Iguane / Docker Swarm hosting (per .claude/agents/analyste.md)",
+      "**Repository visibility**: private (github.com:revelhome/revelhome.git, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: Linear (linear.app) for tickets/comments/PRD/MADR — not a secrets or code-snippet host; treat as sensitive only for what's pasted there",
+      "**Secrets management**: prod secrets managed via Symfony encrypted secrets vault (config/secrets/prod/*.php, sealed/encrypted files, decrypt private key gitignored); 1Password CLI (`op read`) injects secrets for local `just` commands",
+      "**Default / protected branches**: `main` (default, protected via active ruleset \"Protection\", confirmed via gh)",
+      "**CI/CD deploy targets**: GitHub Actions (.github/workflows) — deploy triggered by CalVer git tag (`just release`), not on merge to main; CI secrets referenced: CLAUDE_CODE_OAUTH_TOKEN, GITHUB_TOKEN, MOBISCROLL_TOKEN, OP_SERVICE_ACCOUNT_TOKEN, PRIVATE_KEY",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine (fish shell, machines named vega/orion per user CLAUDE.md) with open internet",
+      "**Source control**: The trusted repo (revelhome/revelhome, github.com) and its remote(s) only (no additional orgs configured)",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: Sentry (revelhome-ot org, de.sentry.io, project revelhome); BetterStack logging (ClickHouse collection prefix t285935_); Linear (team RVH, id 7741b9e1-bae9-46f1-a25b-a44a446073e5) — used read-only by observability/PM subagents",
+      "**Internal package registry**: npm.mobiscroll.com (private npm registry for Mobiscroll package, auth via MOBISCROLL_TOKEN CI secret)",
+      "**Sensitive data locations & audiences**: config/secrets/prod/*.php (encrypted prod secrets: Stripe, Yousign, Brevo, Fintecture, HubSpot, S3, Sentry DSN, Slack DSN, SMS Mode, Mercure, Prometheus, OpenSearch, DB URL, etc.); .env / .env.local / .op.prod.env / .ddev/.env; .rest/*/.env.dev.dist; customer PII in PostgreSQL prod data and BetterStack `project` log channel — cleared only for engineers debugging via psql/BetterStack, never for the `app` log channel per log.md",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any host/namespace/container with `prod` or `production` as a whole word/segment — e.g. `just prod-console`, `config/secrets/prod/*`, prod database dumps (`just dump-prod`)",
+      "**Protected deployment namespaces / environments**: prod deploy triggered only via CalVer git tag (`just release`); `just prod-console` runs Symfony commands in a one-shot prod container — treat as a sensitive remote target",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word/segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Symfony/PHP SaaS product work, OpenSpec-driven workflow, Linear ticket management)",
+      "**Trusted repo**: /home/erwan/repositories/revelhome (github.com:revelhome/revelhome.git) — private repo, confirmed via gh",
+      "**Org-specific CLIs**: `just` (Docker Compose orchestration, secrets injected via 1Password CLI), `rtk` (personal tool, routine under user's own workflow), `chezmoi` (dotfile management for ~/.claude across vega/orion machines), `op` (1Password CLI for secret injection)",
+      "**Trusted repo** qualifier: routine actions (console commands, migrations, tests, cs-fix, phpstan, phpunit) under this repo's `just` targets are expected day-to-day usage"
+    ]
+  }
+}

@@ -129,6 +129,24 @@ Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone 
 (`D<n>`, découpé par la séquence expand/contract), **1 tâche = 1 section du `tasks.md`**. `D<n>` est
 la clé de jointure entre les deux supports. Détail et exemples : skill `linear-conventions`.
 
+## Rédaction des tickets et commentaires Linear
+
+**Court par défaut.** Un commentaire porte la conclusion et ce qu'il reste à décider, pas l'enquête qui
+y mène. Comptages, chronologies et requêtes vivent dans les tickets qui en sortent, ou restent
+reproductibles depuis `project_log` et les sources d'observabilité : les recopier ne rend pas le
+commentaire plus solide, seulement illisible.
+
+**Le lecteur dicte le vocabulaire.** Un commentaire de ticket est lu par le support et le CEO — ni nom
+de classe, ni code HTTP, ni terme d'implémentation. Le détail technique appartient au ticket
+technique, où il est à sa place. Un diagnostic se dit en métier, ou il ne se dit pas.
+
+**Mon ton, pas un ton de rapport.** Phrases courtes, verdicts nets, pas de politesse creuse ni de
+sections décoratives. On doit reconnaître ma main : un texte que n'importe qui pourrait signer est à
+réécrire.
+
+**Chaque question ouverte est nominative.** Qui doit répondre, et quoi — « demande à X si Y », jamais
+« il faudrait vérifier ».
+
 ## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.

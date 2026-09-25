@@ -3,3 +3,6 @@ if status is-interactive
 end
 fish_add_path $HOME/.local/bin
 source /home/erwan/.config/op/plugins.sh
+
+# opencode
+fish_add_path /home/erwan/.opencode/bin
