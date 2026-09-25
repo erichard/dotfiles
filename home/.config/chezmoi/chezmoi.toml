@@ -1,0 +1,5 @@
+sourceDir = "~/repositories/dotfiles"
+
+[git]
+    autoCommit = true
+    autoPush = true

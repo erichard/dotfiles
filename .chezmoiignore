@@ -1,0 +1,5 @@
+# Home Manager possède tout le reste (flake.nix, home/, hosts/).
+# chezmoi ne garde que ce qui ne peut pas vivre dans un dépôt public en clair.
+*
+!.ssh
+!.ssh/**
