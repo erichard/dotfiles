@@ -11,14 +11,15 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      shared = home-manager.lib.homeManagerConfiguration {
+      host = hostname: home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [ ./home.nix ];
+        extraSpecialArgs = { inherit hostname; };
       };
     in {
       homeConfigurations = {
-        "erwan@vega" = shared;
-        "erwan@orion" = shared;
+        "erwan@vega" = host "vega";
+        "erwan@orion" = host "orion";
       };
     };
 }
