@@ -17,7 +17,6 @@
           config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
             "claude-code"
             "slack"
-            "vscode-extension-anthropic-claude-code"
             "vscode-extension-bmewburn-vscode-intelephense-client"
           ];
         };

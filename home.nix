@@ -18,7 +18,6 @@ in {
   programs.vscodium = {
     enable = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      anthropic.claude-code
       bmewburn.vscode-intelephense-client
       eamodio.gitlens
     ];
