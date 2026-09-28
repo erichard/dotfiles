@@ -139,20 +139,3 @@ capsule = true
 capsule_fill = "on_primary"
 inactive_pill_size = 1.0
 pill_scale = 0.80
-
-# Écran de veille « aerials Apple » : 5 min d'inactivité -> les vidéos
-# s'affichent, la moindre activité les coupe.
-# Schéma vérifié via `noctalia config validate` (les clés inconnues y sont
-# signalées). Attention : le validateur ne contrôle QUE les noms de clés,
-# jamais les valeurs.
-[idle.behavior.aerials]
-timeout = 300
-action = "command"
-command = "/home/erwan/Vidéos/Apple/aerial-screensaver.sh start"
-resume_command = "/home/erwan/Vidéos/Apple/aerial-screensaver.sh stop"
-
-# Le verrouillage intégré se déclenche à 200 s par défaut, soit avant les
-# aerials : on le repousse pour qu'ils aient le temps d'exister.
-# Remettre timeout = 200 pour retrouver le comportement d'origine.
-[idle.behavior.lock]
-timeout = 900
