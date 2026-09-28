@@ -17,26 +17,28 @@ Je travaille sur **deux postes**, et c'est la contrainte qui gouverne le choix d
 Conséquence : **rien de local ne survit au changement de poste.** Ce qui n'est pas poussé, ou dans
 Linear, n'existe pas — le reste est un cache.
 
-| Support                       | Survit au `/clear` | Traverse les worktrees | Traverse les postes             |
-|-------------------------------|--------------------|------------------------|---------------------------------|
-| `openspec/changes/*/tasks.md` | oui                | oui                    | **oui**, commité                |
-| Corps du commit               | oui                | oui                    | **oui**, une fois poussé        |
-| Commentaire Linear            | oui                | oui                    | **oui**                         |
-| `~/.claude/` sous chezmoi     | oui                | oui                    | **oui**, après `chezmoi apply`  |
-| `.claude/plans/`              | oui                | non                    | **non** — gitignoré             |
-| Mémoire auto                  | oui                | oui                    | **non** — `~/.claude/projects/` |
-| Plan mode, en session         | non                | non                    | **non**                         |
+| Support                        | Survit au `/clear` | Traverse les worktrees | Traverse les postes             |
+|--------------------------------|--------------------|------------------------|---------------------------------|
+| `openspec/changes/*/tasks.md`  | oui                | oui                    | **oui**, commité                |
+| Corps du commit                | oui                | oui                    | **oui**, une fois poussé        |
+| Commentaire Linear             | oui                | oui                    | **oui**                         |
+| `~/.claude/` sous Home Manager | oui                | oui                    | **oui**, après pull et `switch` |
+| `.claude/plans/`               | oui                | non                    | **non** — gitignoré             |
+| Mémoire auto                   | oui                | oui                    | **non** — `~/.claude/projects/` |
+| Plan mode, en session          | non                | non                    | **non**                         |
 
 Donc : la **mémoire auto est un cache, jamais un registre** — n'y mettre que ce qui se re-dérive du
 dépôt. Un état d'avancement va dans le `tasks.md` de la change OpenSpec ; une décision ou un prochain
 pas va dans le corps du commit **poussé**, ou dans Linear. Avant de fermer une session, ce qui compte
 n'est pas commité : il est **poussé**.
 
-`~/.claude/` est géré par **chezmoi** (source `~/.local/share/chezmoi`, cible `private_dot_claude/`) :
-`CLAUDE.md`, `RTK.md` et `settings.json`. Le critère d'entrée est le `mtime` — ce qui bouge chaque
-jour n'y va pas, et `.chezmoiignore` nomme le runtime pour qu'un `chezmoi add ~/.claude` ne puisse
-plus l'aspirer. Un fichier neuf sous `~/.claude/` n'existe sur l'autre poste qu'après un
-`chezmoi add` **et** un push.
+`~/.claude/` est géré par **Home Manager** (dépôt `~/repositories/dotfiles`, source `home/.claude/`) :
+chaque fichier de `home/` y est un lien vers le dépôt, donc une édition sous `~/.claude/` s'écrit
+directement dans le dépôt. Le critère d'entrée est le `mtime` — ce qui bouge chaque jour n'y va pas :
+seul ce qui est posé dans `home/` est lié, le runtime reste hors du dépôt. Un fichier neuf n'existe
+sur l'autre poste qu'après un `git add`, un `home-manager switch --flake ~/repositories/dotfiles`
+**et** un push. Un outil qui remplace son fichier au lieu de l'écrire casse le lien : le `switch`
+refuse alors d'écraser, et le fichier se déplace dans `home/` avant de relancer.
 
 ## Workflow Orchestration
 
@@ -97,7 +99,7 @@ Ne jamais promouvoir sur une seule occurrence : un signal est une piste, pas un 
 
 La leçon qu'aucun dépôt ne possède — elle traverse les projets, ou elle porte sur ma façon de
 travailler plutôt que sur du code — va dans `~/.claude/lessons.md`, importé en fin de fichier et
-versionné sous chezmoi : c'est ce qui la fait traverser les postes. Celle qu'un dépôt possède reste
+versionné sous Home Manager : c'est ce qui la fait traverser les postes. Celle qu'un dépôt possède reste
 dans le dépôt.
 
 ### 5. Verification Before Done
@@ -137,6 +139,13 @@ de vie** (préfixes `M`, `D`, `F`, `P`), **1 tâche = 1 section du `tasks.md`**.
 jointure entre les deux supports. Les préfixes, leur ordre et les règles qui en découlent
 appartiennent au dépôt : skill `linear-conventions`.
 
+## Accès à Linear : `linear-cli` d'abord
+
+Lire et écrire Linear avec **`linear-cli`** en priorité, le MCP Linear seulement pour ce que la CLI ne
+couvre pas. `-o json` et `--quiet` pour une sortie exploitable ; `linear-cli api` pour une requête
+GraphQL brute ; `linear-cli uploads fetch <url> -f <fichier>` puis `Read` pour voir une capture.
+Découvrir une commande par `linear-cli <commande> --help`, jamais de mémoire.
+
 ## Rédaction des tickets et commentaires Linear
 
 **Court par défaut.** Un commentaire porte la conclusion et ce qu'il reste à décider, pas l'enquête qui
@@ -161,6 +170,7 @@ réécrire.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimat Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
+@lessons.md
+
 @RTK.md
 @HERDR.md
-@lessons.md
