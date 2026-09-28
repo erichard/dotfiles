@@ -12,7 +12,13 @@
   outputs = { nixpkgs, home-manager, ... }:
     let
       host = hostname: home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            "vscode-extension-anthropic-claude-code"
+            "vscode-extension-bmewburn-vscode-intelephense-client"
+          ];
+        };
         modules = [ ./home.nix ];
         extraSpecialArgs = { inherit hostname; };
       };

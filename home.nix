@@ -14,6 +14,16 @@ in {
   programs.home-manager.enable = true;
   targets.genericLinux.enable = true;
 
+  # Seules les extensions passent par Nix : settings.json reste lié hors du store pour que VSCodium puisse l'écrire.
+  programs.vscodium = {
+    enable = true;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      anthropic.claude-code
+      bmewburn.vscode-intelephense-client
+      eamodio.gitlens
+    ];
+  };
+
   home.packages = with pkgs; [ age rtk just gh jq fd ripgrep bat eza fzf btop (callPackage ./pkgs/linear-cli.nix { }) ];
 
   # Liens hors du store : Claude Code, noctalia et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
