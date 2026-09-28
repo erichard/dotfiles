@@ -26,7 +26,7 @@ in {
 
   home.packages = with pkgs; [ age rtk just gh jq fd ripgrep bat eza fzf btop (callPackage ./pkgs/linear-cli.nix { }) ];
 
-  # Liens hors du store : Claude Code, noctalia et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
+  # Liens hors du store : Claude Code et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
   # hosts/<hôte>/ surcharge home/ : seuls y vivent les fichiers qu'une machine ne peut pas partager.
   home.file = lib.genAttrs (relative ./home) (link "home")
     // lib.optionalAttrs (builtins.pathExists hostDir)
