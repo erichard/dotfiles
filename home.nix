@@ -24,6 +24,7 @@ in {
     ];
   };
 
+  # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
   home.packages = with pkgs; [ age rtk just gh jq fd ripgrep bat eza fzf btop slack claude-code herdr (callPackage ./pkgs/linear-cli.nix { }) ];
 
   # Liens hors du store : Claude Code et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
