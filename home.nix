@@ -29,7 +29,8 @@ in {
 
   # Liens hors du store : Claude Code et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
   # hosts/<hôte>/ surcharge home/ : seuls y vivent les fichiers qu'une machine ne peut pas partager.
-  home.file = lib.genAttrs (relative ./home) (link "home")
+  home.file = { ".config/home-manager".source = config.lib.file.mkOutOfStoreSymlink repo; }
+    // lib.genAttrs (relative ./home) (link "home")
     // lib.optionalAttrs (builtins.pathExists hostDir)
          (lib.genAttrs (relative hostDir) (link "hosts/${hostname}"));
 }

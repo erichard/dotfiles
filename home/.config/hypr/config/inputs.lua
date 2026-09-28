@@ -2,12 +2,19 @@
 
 hl.config({
     input = {
+        -- sensitivity = -0.25,
         accel_profile = "flat",
-	kb_layout = "us_qwerty-fr",
 	touchpad = {
+            tap_to_click = true,
             clickfinger_behavior = true,
+            natural_scroll = true,
         },
+	kb_layout = "us_qwerty-fr",
     },
+    -- Uncomment the section below to enable software cursors; this can help with cursor display or behavior issues
+    -- cursor = {
+    --     no_hardware_cursors = 1,
+    -- },
 })
 
 hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
