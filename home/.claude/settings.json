@@ -38,7 +38,8 @@
     "refreshInterval": 10
   },
   "enabledPlugins": {
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "stripe@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
