@@ -88,6 +88,9 @@ Toute session qui va modifier des fichiers **commence par `EnterWorktree`**, ava
 recherche `git log`) : dès qu'une édition s'annonce, ouvrir le worktree d'abord plutôt que de
 modifier sur place puis de vouloir isoler après coup.
 
+Dans un worktree, appeler git par **`/usr/bin/git`**, jamais `git` nu : le hook RTK le réécrit en
+`rtk git`, que le garde-fou d'isolation du worktree refuse.
+
 ### 4. Self-Improvement Loop
 
 Après une correction : ne pas se contenter de corriger la ligne, récupérer la **classe** de défaut et
