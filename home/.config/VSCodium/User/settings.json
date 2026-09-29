@@ -2,5 +2,5 @@
   "workbench.colorTheme": "Light 2026",
   "claudeCode.preferredLocation": "panel",
   "intelephense.codeLens.references.enable": true,
-  "extensions.autoUpdate": false
+  "extensions.autoUpdate": "off"
 }
