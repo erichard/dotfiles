@@ -20,6 +20,7 @@ in {
     profiles.default.extensions = with pkgs.vscode-extensions; [
       bmewburn.vscode-intelephense-client
       eamodio.gitlens
+      jdinhlife.gruvbox
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       # Absente de nixpkgs : tirée du Marketplace.
       { publisher = "mblode"; name = "twig-language-2"; version = "0.12.1"; sha256 = "1k0rfl3xzvx6dscpzi1s2dhzrs8n0xmryag99rvzcr6vq1yxj9j2"; }
