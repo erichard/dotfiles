@@ -37,6 +37,7 @@
     "refreshInterval": 10
   },
   "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true,
     "ponytail@ponytail": true,
     "stripe@claude-plugins-official": true
   },

@@ -16,6 +16,7 @@
           system = "x86_64-linux";
           config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
             "claude-code"
+            "intelephense"
             "slack"
             "vscode-extension-bmewburn-vscode-intelephense-client"
           ];
