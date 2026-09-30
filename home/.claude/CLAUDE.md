@@ -81,7 +81,10 @@ milestones, lui, appartient à la **Réalisation**.
 - For complex problems, throw more compute at it via subagents
 - One tack per subagent for focused execution
 
-### 3. Ouvrir un worktree avant la première modification
+### 3. Ouvrir un worktree avant la première modification — Revel'Home seulement
+
+La règle ne vaut que dans le dépôt Revel'Home (`~/repositories/revelhome`) ; ailleurs, on modifie
+sur place.
 
 Toute session qui va modifier des fichiers **commence par `EnterWorktree`**, avant le premier
 `Edit`/`Write`. Le checkout principal reste réservé à la lecture seule (exploration, revue,
