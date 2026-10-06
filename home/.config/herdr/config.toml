@@ -207,6 +207,7 @@ description = "herdr-plus: quick actions"
 
 # Background notification popup delivery
 agent_panel_sort = "spaces"
+status_indicators = "symbols"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
@@ -215,6 +216,7 @@ agent_panel_sort = "spaces"
 # delivery = "off"
 # delay_seconds = 1
 
+delivery = "system"
 [ui.toast.herdr]
 # position = "bottom-right"
 
