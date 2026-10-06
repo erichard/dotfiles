@@ -5,7 +5,9 @@ Lorsque tu t'adresses à moi, tu peux m'appeler Erwan et tu peux me tutoyer.
 
 ## Environnement
 
-- **Shell** : fish (pas bash/zsh) — adapter la syntaxe des commandes en conséquence (ex: `set -x VAR value` au lieu de `export VAR=value`)
+- **Shell** : mon terminal est en fish — une commande que je tape (`! <cmd>`) s'écrit en fish
+  (`set -x VAR value`). L'outil Bash, lui, exécute **zsh** : syntaxe POSIX, et les pièges zsh
+  (glob sans correspondance qui échoue, `$VAR` jamais découpé sur les espaces — passer un tableau).
 
 ## Deux machines : vega et orion
 
