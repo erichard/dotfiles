@@ -3,6 +3,8 @@ hl.config({
         preserve_split = true,
     },
     misc = {
+        disable_hyprland_logo = true,
+        background_color = "rgba(282828ff)",
         col = {
             splash = CACHYLGREEN,
         },
