@@ -6,6 +6,7 @@ let
     (map toString (lib.filesystem.listFilesRecursive dir));
   hostDir = ./hosts + "/${hostname}";
   link = sub: f: { source = config.lib.file.mkOutOfStoreSymlink "${repo}/${sub}/${f}"; };
+  pinchtab = pkgs.callPackage ./pkgs/pinchtab.nix { };
 in {
   home.username = "erwan";
   home.homeDirectory = "/home/erwan";
@@ -28,11 +29,12 @@ in {
   };
 
   # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
-  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) ];
+  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab ];
 
   # Liens hors du store : Claude Code et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
   # hosts/<hôte>/ surcharge home/ : seuls y vivent les fichiers qu'une machine ne peut pas partager.
   home.file = { ".config/home-manager".source = config.lib.file.mkOutOfStoreSymlink repo; }
+    // { ".claude/skills/pinchtab".source = "${pinchtab}/share/pinchtab/skills/pinchtab"; }
     // lib.genAttrs (relative ./home) (link "home")
     // lib.optionalAttrs (builtins.pathExists hostDir)
          (lib.genAttrs (relative hostDir) (link "hosts/${hostname}"));
