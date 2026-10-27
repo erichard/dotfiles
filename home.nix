@@ -29,7 +29,9 @@ in {
   };
 
   # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
-  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab ];
+  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab jetbrains-mono ];
+  # Rend les polices de home.packages visibles de fontconfig, donc de kitty.
+  fonts.fontconfig.enable = true;
 
   # Liens hors du store : Claude Code et herdr réécrivent leur config, qui doit rester modifiable dans le dépôt.
   # hosts/<hôte>/ surcharge home/ : seuls y vivent les fichiers qu'une machine ne peut pas partager.
