@@ -5,9 +5,10 @@ Lorsque tu t'adresses à moi, tu peux m'appeler Erwan et tu peux me tutoyer.
 
 ## Environnement
 
-- **Shell** : mon terminal est en fish — une commande que je tape (`! <cmd>`) s'écrit en fish
-  (`set -x VAR value`). L'outil Bash, lui, exécute **zsh** : syntaxe POSIX, et les pièges zsh
-  (glob sans correspondance qui échoue, `$VAR` jamais découpé sur les espaces — passer un tableau).
+- **Shell** : mon terminal est en fish, mais Claude Code exécute en **zsh** l'outil Bash comme les
+  commandes `! <cmd>` que je tape : une commande à me proposer s'écrit en syntaxe POSIX (`&&`, pas
+  `; and`). Les pièges zsh : glob sans correspondance qui échoue, `$VAR` jamais découpé sur les
+  espaces — passer un tableau.
 
 ## Deux machines : vega et orion
 
