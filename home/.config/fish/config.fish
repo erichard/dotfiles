@@ -7,3 +7,6 @@ source /home/erwan/.config/op/plugins.sh
 
 # opencode
 fish_add_path /home/erwan/.opencode/bin
+
+# Scaleway CLI autocomplete initialization.
+eval (scw autocomplete script shell=fish)
