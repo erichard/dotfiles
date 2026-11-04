@@ -7,8 +7,7 @@ Lorsque tu t'adresses à moi, tu peux m'appeler Erwan et tu peux me tutoyer.
 
 - **Shell** : mon terminal est en fish, mais Claude Code exécute en **zsh** l'outil Bash comme les
   commandes `! <cmd>` que je tape : une commande à me proposer s'écrit en syntaxe POSIX (`&&`, pas
-  `; and`). Les pièges zsh : glob sans correspondance qui échoue, `$VAR` jamais découpé sur les
-  espaces — passer un tableau.
+  `; and`). Piège zsh : `$VAR` jamais découpé sur les espaces — passer un tableau.
 
 ## Deux machines : vega et orion
 
