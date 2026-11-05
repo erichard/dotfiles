@@ -29,7 +29,7 @@ in {
   };
 
   # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
-  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab jetbrains-mono (callPackage ./pkgs/paradev.nix { }) ];
+  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab jetbrains-mono (callPackage ./pkgs/paradev.nix { }) (callPackage ./pkgs/cf.nix { }) ];
   # Rend les polices de home.packages visibles de fontconfig, donc de kitty.
   fonts.fontconfig.enable = true;
 
