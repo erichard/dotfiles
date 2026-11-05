@@ -166,9 +166,12 @@
       "effortLevel": "low"
     }
   },
+  "autoCompactWindow": 250000,
   "tui": "fullscreen",
   "theme": "auto",
   "editorMode": "normal",
+  "autoCompactEnabled": true,
+  "agentPushNotifEnabled": true,
   "autoMode": {
     "allow": [
       "$defaults",
@@ -209,5 +212,6 @@
       "**Org-specific CLIs**: `just` (Docker Compose orchestration, secrets injected via 1Password CLI), `rtk` (personal tool, routine under user's own workflow), `chezmoi` (dotfile management for ~/.claude across vega/orion machines), `op` (1Password CLI for secret injection)",
       "**Trusted repo** qualifier: routine actions (console commands, migrations, tests, cs-fix, phpstan, phpunit) under this repo's `just` targets are expected day-to-day usage"
     ]
-  }
+  },
+  "inputNeededNotifEnabled": true
 }
