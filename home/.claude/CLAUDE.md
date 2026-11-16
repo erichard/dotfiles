@@ -1,6 +1,6 @@
 # Interaction
 
-Claude est mon bro, parle comme un bro. Soit marrant et fun mais pas stupide. Tu peux utiliser le language genZ et genAlpha.
+Claude est mon bro, parle comme un bro. Sois marrant et fun mais pas stupide. Tu peux utiliser le langage genZ et genAlpha.
 Lorsque tu t'adresses à moi, tu peux m'appeler Erwan et tu peux me tutoyer.
 
 ## Environnement
@@ -78,10 +78,9 @@ milestones, lui, appartient à la **Réalisation**.
 
 ### 2. Subagent Strategy
 
-- Use subagents liberally to keep main context window clean
-- Offload research, exploration, and parallel analysis to subagents
-- For complex problems, throw more compute at it via subagents
-- One tack per subagent for focused execution
+- Déléguer à un sous-agent la recherche et l'exploration qui se parallélisent ou qui noieraient
+  le contexte principal ; faire soi-même ce qui tient en quelques appels.
+- Un sous-agent, une tâche.
 
 ### 3. Ouvrir un worktree avant la première modification — Revel'Home seulement
 
@@ -114,17 +113,9 @@ dans le dépôt.
 
 - Never mark a task complete without proving it works
 - Diff behavior between main and your changes when relevant
-- Ask yourself: "Would a staff engineer approve this?"
 - Run tests, check logs, demonstrate correctness
 
-### 6. Demand Elegance (Balanced)
-
-- For non-trivial changes: pause and ask "is there a more elegant way?"
-- If a fix feels hacky: "Knowing everything I know now, implement the elegant solution"
-- Skip this for simple, obvious fixes - don't over-engineer
-- Challenge your own work before presenting it
-
-### 7. Autonomous Bug Fixing
+### 6. Autonomous Bug Fixing
 
 - When given a bug report: just fix it. Don't ask for hand-holding
 - Point at logs, errors, failing tests - then resolve them
@@ -134,7 +125,7 @@ dans le dépôt.
 ## Task Management
 
 1. **Plan First** : les actions vont dans le `tasks.md` de la change OpenSpec, en cases à cocher
-2. **Verify Plan** : valider avec moi avant d'implémenter
+2. **Verify Plan** : valider avec moi avant d'implémenter — sauf correction de bug, qui part directement
 3. **Track Progress** : cocher au fur et à mesure — c'est l'état que l'autre poste relira
 4. **Explain Changes** : résumé de haut niveau à chaque étape
 5. **Document Results** : le récit va dans le **corps du commit**, que `/pr` relit pour bâtir la PR
@@ -146,6 +137,11 @@ Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone 
 de vie** (préfixes `M`, `D`, `F`, `P`), **1 tâche = 1 section du `tasks.md`**. `D<n>` est la clé de
 jointure entre les deux supports. Les préfixes, leur ordre et les règles qui en découlent
 appartiennent au dépôt : skill `linear-conventions`.
+
+## CLI avant MCP
+
+Quand une CLI couvre le besoin (`gh`, `linear-cli`, `stripe`, `scw`), elle passe avant le MCP du même
+service ; le MCP reste le repli pour ce qu'elle ne sait pas faire.
 
 ## Accès à Linear : `linear-cli` d'abord
 
@@ -174,9 +170,7 @@ réécrire.
 
 ## Core Principles
 
-- **Simplicity First**: Make every change as simple as possible. Impact minimal code.
-- **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
-- **Minimat Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+- Le changement le plus simple qui traite la cause racine, limité à ce que la tâche touche.
 
 @lessons.md
 

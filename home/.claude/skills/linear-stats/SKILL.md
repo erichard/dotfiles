@@ -23,7 +23,7 @@ Les arguments du skill sont passés sous forme libre, par exemple : `/linear-sta
 
 1. **Récupérer les tickets**
 
-    - Utiliser `mcp__claude_ai_Linear__list_issues` avec le label spécifié, team ID `7741b9e1-bae9-46f1-a25b-a44a446073e5`, `orderBy: createdAt`, `limit: 250`, `includeArchived: true`
+    - Lister les tickets (`linear-cli issues list`, sinon `list_issues` du MCP) avec le label spécifié, team ID `7741b9e1-bae9-46f1-a25b-a44a446073e5`, triés par date de création, 250 par page, archivés compris
     - Paginer avec le curseur si `hasNextPage` est true
     - Les IDs de labels et statuts sont documentés dans le skill `linear-conventions` du dépôt Revel'Home
 
@@ -52,4 +52,3 @@ Les labels de type Scope à tracker : Interface pro, Projet/Devis, Paiements, GE
 - Sauvegarder les résultats intermédiaires dans `/tmp/` pour éviter de surcharger le contexte
 - Afficher des barres visuelles (█) pour les pourcentages
 - La semaine en cours doit être marquée "(en cours)"
-- Être concis dans le résumé, aller droit au but

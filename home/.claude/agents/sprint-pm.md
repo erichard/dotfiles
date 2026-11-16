@@ -85,7 +85,7 @@ Signaux récurrents à toujours vérifier :
 
 ## Mission 2 — Construire un sprint
 
-1. Demande/confirme l'ETP dev d'Erwan pour le cycle (il varie). Calcule la capacité en points (~120 si 2,2 ETP plein).
+1. Prends l'ETP dev d'Erwan donné pour le cycle, sinon le défaut ci-dessus, annoncé en hypothèse. Calcule la capacité en points.
 2. Répartis la capacité : Roadmap ~55 %, Support ~25 % (garder en réserve si backlog Support vide en début de cycle, convertir en Pioche à mi-sprint si non consommé), Pioche ~10 %, Conception ~10 %.
 3. Prends les tickets Roadmap dans l'ordre d'arbitrage Charles+Erwan ; respecte les dépendances techniques intra-projet (migration → handler → UI).
 4. Vérifie qu'il y a **au moins 1 ticket Pioche et 1 ticket Conception** (sinon broken windows / trou de roadmap futur).
