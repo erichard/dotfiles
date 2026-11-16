@@ -21,7 +21,7 @@ Linear, n'existe pas — le reste est un cache.
 
 | Support                        | Survit au `/clear` | Traverse les worktrees | Traverse les postes             |
 |--------------------------------|--------------------|------------------------|---------------------------------|
-| `openspec/changes/*/tasks.md`  | oui                | oui                    | **oui**, commité                |
+| Spec Linear et ses tickets     | oui                | oui                    | **oui**                         |
 | Corps du commit                | oui                | oui                    | **oui**, une fois poussé        |
 | Commentaire Linear             | oui                | oui                    | **oui**                         |
 | `~/.claude/` sous Home Manager | oui                | oui                    | **oui**, après pull et `switch` |
@@ -30,8 +30,8 @@ Linear, n'existe pas — le reste est un cache.
 | Plan mode, en session          | non                | non                    | **non**                         |
 
 Donc : la **mémoire auto est un cache, jamais un registre** — n'y mettre que ce qui se re-dérive du
-dépôt. Un état d'avancement va dans le `tasks.md` de la change OpenSpec ; une décision ou un prochain
-pas va dans le corps du commit **poussé**, ou dans Linear. Avant de fermer une session, ce qui compte
+dépôt. Un état d'avancement va dans les sous-tickets de la spec ; une décision ou un prochain pas
+va dans le corps du commit **poussé**, ou dans Linear. Avant de fermer une session, ce qui compte
 n'est pas commité : il est **poussé**.
 
 `~/.claude/` est géré par **Home Manager** (dépôt `~/repositories/dotfiles`, source `home/.claude/`) :
@@ -44,37 +44,38 @@ refuse alors d'écraser, et le fichier se déplace dans `home/` avant de relance
 
 ## Workflow Orchestration
 
-### 1. OpenSpec, et où entrer dans le pipeline
+### 1. La spec, et où entrer dans le pipeline
 
-Je n'utilise pas plan mode : la spécification vit dans `openspec/changes/`, versionnée dans le dépôt,
-donc elle traverse les postes. Entrer dans le pipeline **à la hauteur du chantier** (gradient
-anti-bureaucratie, Tech Hub → Méthodes de travail) :
+Je n'utilise pas plan mode : la spec vit dans Linear — un ticket chapeau (`/to-spec`) et ses
+sous-tickets (`/to-tickets`) —, donc elle traverse les postes. Entrer dans le pipeline **à la
+hauteur du chantier** (gradient anti-bureaucratie, Tech Hub → Méthodes de travail) :
 
-| Ampleur                 | Point d'entrée                                         |
-|-------------------------|--------------------------------------------------------|
-| 3+ semaines, transverse | change OpenSpec complète : proposal + design + specs   |
-| 1-3 semaines            | PRD léger + spec technique en commentaire long         |
-| < 1 semaine             | ticket Linear bien rédigé                              |
-| Correction de bug       | directement à l'implémentation                         |
+| Ampleur                 | Point d'entrée                               |
+|-------------------------|----------------------------------------------|
+| 3+ semaines, transverse | PRD + UXspec, puis `to-spec` et `to-tickets` |
+| 1-3 semaines            | `to-spec` directement, puis `to-tickets`     |
+| < 1 semaine             | ticket Linear bien rédigé                    |
+| Correction de bug       | directement à l'implémentation               |
 
-Plus c'est gros, plus on va en amont. Ne pas ouvrir une change pour un correctif ; ne pas coder à
-l'aveugle un chantier transverse. Doute sur la marche à suivre : `/openspec-explore`.
+Plus c'est gros, plus on va en amont. Ne pas ouvrir une spec pour un correctif ; ne pas coder à
+l'aveugle un chantier transverse. Une spécification OpenSpec déjà entamée se termine sous OpenSpec,
+son avancement dans son `tasks.md` (Revel'Home, MADR 065).
 
 Si ça part de travers, s'arrêter et re-spécifier — ne pas pousser plus loin.
 
 **Trois phases.** Le gradient dit où l'on entre ; la séquence dit ce qu'on traverse.
 
-| Phase       | Question    | Artefacts                                               | Où ça vit          |
-|-------------|-------------|---------------------------------------------------------|--------------------|
-| Exploration | *pourquoi*  | PRD — établit le périmètre du projet                    | document Linear    |
-| Conception  | *comment*   | prototype → UXspec → OpenSpec (proposal, design, specs) | Linear, puis dépôt |
-| Réalisation | *exécution* | `tasks.md`, découpage en milestones, dev, PR relues     | dépôt et Linear    |
+| Phase       | Question    | Artefacts                                             | Où ça vit       |
+|-------------|-------------|-------------------------------------------------------|-----------------|
+| Exploration | *pourquoi*  | PRD — établit le périmètre du projet                  | document Linear |
+| Conception  | *comment*   | prototype → UXspec → la spec (ticket chapeau)         | Linear          |
+| Réalisation | *exécution* | sous-tickets, découpage en milestones, dev, PR relues | Linear et dépôt |
 
-En Conception, l'UXspec (anciennement IDR) précède **généralement** l'OpenSpec, qui s'écrit à partir
-d'elle : le `proposal.md` s'ouvre sur ses **sources de cadrage**, liens vers le PRD et l'UXspec —
-symétrique du `Réf. change OpenSpec` que porte le milestone. C'est une contrainte de **charge**, pas
-de méthode : les deux axes avancent en parallèle quand la capacité le permet. Le découpage en
-milestones, lui, appartient à la **Réalisation**.
+En Conception, l'UXspec (anciennement IDR) précède **généralement** la spec, qui s'écrit à partir
+d'elle : le ticket chapeau s'ouvre sur ses **sources de cadrage**, liens vers le PRD et l'UXspec.
+C'est une contrainte de **charge**, pas de méthode : les deux axes avancent en parallèle quand la
+capacité le permet. Le découpage en sous-tickets et en milestones, lui, appartient à la
+**Réalisation**.
 
 ### 2. Subagent Strategy
 
@@ -124,19 +125,19 @@ dans le dépôt.
 
 ## Task Management
 
-1. **Plan First** : les actions vont dans le `tasks.md` de la change OpenSpec, en cases à cocher
+1. **Plan First** : les actions sont les sous-tickets de la spec, avec leurs critères d'acceptation
 2. **Verify Plan** : valider avec moi avant d'implémenter — sauf correction de bug, qui part directement
-3. **Track Progress** : cocher au fur et à mesure — c'est l'état que l'autre poste relira
+3. **Track Progress** : tenir le statut des sous-tickets au fur et à mesure — c'est l'état que
+   l'autre poste relira
 4. **Explain Changes** : résumé de haut niveau à chaque étape
 5. **Document Results** : le récit va dans le **corps du commit**, que `/pr` relit pour bâtir la PR
 6. **Capture Lessons** : après une correction, promouvoir la leçon selon l'échelle de
    `.claude/rules/harness-engineering.md` — vers le dépôt, ou vers `~/.claude/lessons.md` si aucun
    dépôt ne la possède ; jamais vers la mémoire auto
 
-Structure Linear autour d'une change : **1 projet ↔ 1 change**, **1 milestone = une étape du cycle
-de vie** (préfixes `M`, `D`, `F`, `P`), **1 tâche = 1 section du `tasks.md`**. `D<n>` est la clé de
-jointure entre les deux supports. Les préfixes, leur ordre et les règles qui en découlent
-appartiennent au dépôt : skill `linear-conventions`.
+Structure Linear autour d'une spec : **1 ticket chapeau**, **ses sous-tickets**, et pour un projet
+**1 milestone = une étape du cycle de vie** (préfixes `M`, `D`, `F`, `P`). Les préfixes, leur ordre
+et les règles qui en découlent appartiennent au dépôt : skill `linear-conventions`.
 
 ## CLI avant MCP
 
