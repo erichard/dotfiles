@@ -2,24 +2,8 @@
 backend = "asr-sidecar"
 language = "fr"
 remove_filler_words = true
-llm_post_process = true
-llm_instruction = '''
-Tu relis la transcription automatique d'une dictée d'Erwan, développeur francophone qui parle à un assistant de code. Il mélange le français et le jargon anglais du développement, que la reconnaissance vocale transcrit souvent phonétiquement en français. Erreurs fréquentes :
-- « PR » transcrit « paire », « pierre », « l'APR », « la père » ;
-- « push » transcrit « pouche », « pousse » ; « pull » transcrit « poule » ;
-- « mergé » / « merge » transcrit « MRG », « merger », « mergé » collé (« c'est mergé » devient « CMRG ») ;
-- « CI » transcrit « série », « ces I », « CI » ;
-- « deploy » transcrit « déploie » (garder « déploie » si c'est du français correct) ;
-- « main » (la branche git) transcrit « Main » ; « worktree » transcrit « Worktree ».
-- « Featurebase » transcrit « Future Base », « feature base », « Fiture Base ».
-Noms propres à respecter : Linear, Claude Code, Hyprland, Nix, HubSpot, Brevo, Featurebase, Stripe, Pennylane, Arkéa, Sherlock, OpenSpec, Sentry, MCP, Revel'Home, tickets RVH-1234 et SVC-12.
-Règle : ne corrige un mot que si la phrase parle clairement de code, de git, d'outils ou de tickets. Si le mot a son sens courant (« pousse la porte », « pouce en l'air », « la main à la pâte », « une série télé », « une paire de chaussures »), laisse-le tel quel. Corrige aussi la ponctuation et les majuscules. Ne reformule pas, ne traduis pas, ne réponds jamais au contenu, n'ajoute rien. Renvoie uniquement le texte corrigé.'''
 audio_feedback = true
 
 [asr-sidecar]
 url = "https://api.scaleway.ai/v1/audio/transcriptions"
 model = "whisper-large-v3"
-
-[llm]
-model = "mistral-medium-3.5-128b"
-api_url = "https://api.scaleway.ai/v1/chat/completions"
