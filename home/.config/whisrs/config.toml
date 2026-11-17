@@ -2,7 +2,7 @@
 backend = "asr-sidecar"
 language = "fr"
 remove_filler_words = true
-audio_feedback = true
+audio_feedback = false
 
 [asr-sidecar]
 url = "https://api.scaleway.ai/v1/audio/transcriptions"
