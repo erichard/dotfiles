@@ -115,6 +115,9 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. "panel-toggle wal
 -- Clipboard
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle clipboard"))
 
+-- Dictée : un appui lance l'enregistrement, le suivant transcrit et tape le texte
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("whisrs toggle"))
+
 -- Notifications
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-center notifications"))
 

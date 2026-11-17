@@ -29,7 +29,18 @@ in {
   };
 
   # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
-  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab jetbrains-mono ];
+  home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab whisrs jetbrains-mono ];
+  # whisrs ne lit sa clé que dans l'environnement : op run l'y injecte depuis 1Password au démarrage.
+  systemd.user.services.whisrs = {
+    Unit = { Description = "whisrs dictation daemon"; After = [ "graphical-session.target" ]; };
+    Service = {
+      ExecStart = "/usr/bin/op run --account revelhome.1password.eu --env-file=%h/.config/whisrs/op.env -- ${pkgs.whisrs}/bin/whisrsd";
+      Restart = "on-failure";
+      RestartSec = 3;
+      PassEnvironment = "HYPRLAND_INSTANCE_SIGNATURE NIRI_SOCKET SWAYSOCK WAYLAND_DISPLAY DISPLAY XAUTHORITY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_RUNTIME_DIR";
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
   # Rend les polices de home.packages visibles de fontconfig, donc de kitty.
   fonts.fontconfig.enable = true;
 
