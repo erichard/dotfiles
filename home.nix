@@ -30,13 +30,33 @@ in {
 
   # 1Password reste sous pacman : op doit être setgid pour joindre l'application, ce que le store Nix ne permet pas.
   home.packages = with pkgs; [ age chezmoi rtk just gh stripe-cli scaleway-cli jq fd ripgrep bat eza fzf btop lazygit intelephense slack claude-code herdr nh openspec (callPackage ./pkgs/linear-cli.nix { }) pinchtab whisrs jetbrains-mono ];
-  # whisrs ne lit sa clé que dans l'environnement : op run l'y injecte depuis 1Password au démarrage.
-  systemd.user.services.whisrs = {
-    Unit = { Description = "whisrs dictation daemon"; After = [ "graphical-session.target" ]; };
+  # whisrs ne lit ses clés que dans l'environnement. Elles sortent de 1Password une fois par session,
+  # vers un fichier 0600 en /run/user (tmpfs) : redémarrer whisrs ne redemande plus d'autorisation.
+  systemd.user.services.whisrs-secrets = {
+    Unit.Description = "Clés de whisrs depuis 1Password";
     Service = {
-      ExecStart = "/usr/bin/op run --account revelhome.1password.eu --env-file=%h/.config/whisrs/op.env -- ${pkgs.whisrs}/bin/whisrsd";
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "/usr/bin/op run --account revelhome.1password.eu --env-file=%h/.config/whisrs/op.env -- sh -c 'umask 077 && env | grep ^WHISRS_ > %t/whisrs.env'";
+      ExecStop = "rm -f %t/whisrs.env";
+      # 1Password peut être encore verrouillé à l'ouverture de session.
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+  };
+  systemd.user.services.whisrs = {
+    Unit = {
+      Description = "whisrs dictation daemon";
+      After = [ "graphical-session.target" "whisrs-secrets.service" ];
+      Requires = [ "whisrs-secrets.service" ];
+    };
+    Service = {
+      EnvironmentFile = "%t/whisrs.env";
+      ExecStart = "${pkgs.whisrs}/bin/whisrsd";
       Restart = "on-failure";
       RestartSec = 3;
+      # L'alsa-lib de Nix ne voit pas le plugin PipeWire du système : sans lui, le micro « default » et les bips échouent.
+      Environment = "ALSA_PLUGIN_DIR=${pkgs.pipewire}/lib/alsa-lib";
       PassEnvironment = "HYPRLAND_INSTANCE_SIGNATURE NIRI_SOCKET SWAYSOCK WAYLAND_DISPLAY DISPLAY XAUTHORITY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP XDG_RUNTIME_DIR";
     };
     Install.WantedBy = [ "default.target" ];
