@@ -37,11 +37,14 @@ in {
     Service = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "/usr/bin/op run --account revelhome.1password.eu --env-file=%h/.config/whisrs/op.env -- sh -c 'umask 077 && env | grep ^WHISRS_ > %t/whisrs.env'";
+      # 1Password n'est pas encore lancé au démarrage : on boucle dans le service plutôt que de le relancer,
+      # car un échec ferait échouer whisrs, que systemd ne relancerait pas une fois les clés obtenues.
+      ExecStart = toString (pkgs.writeShellScript "whisrs-secrets" ''
+        until /usr/bin/op run --account revelhome.1password.eu --env-file="$HOME/.config/whisrs/op.env" -- \
+          sh -c 'umask 077 && env | grep ^WHISRS_ > "$XDG_RUNTIME_DIR/whisrs.env"'; do sleep 10; done
+      '');
       ExecStop = "rm -f %t/whisrs.env";
-      # 1Password peut être encore verrouillé à l'ouverture de session.
-      Restart = "on-failure";
-      RestartSec = 10;
+      TimeoutStartSec = "infinity";
     };
   };
   systemd.user.services.whisrs = {
